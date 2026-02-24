@@ -61,3 +61,20 @@ const longBooksTitles = books.forEach(b => console.log(b.title))
 
 //Snack 2 📌
 
+const availableBooks = books.filter(b => b.available)
+console.log(availableBooks)
+
+const discountedBooks = availableBooks.map(b => {
+    const discountedPrice = (parseFloat(b.price) - (parseFloat(b.price) * 0.2)).toFixed(2);
+    return {
+        ...b, //spread operator
+        price: `${discountedPrice}€`
+    }
+})
+console.log(discountedBooks)
+
+const fullPricedBook = discountedBooks.find(books => {
+    const parsedPrice = parseInt(books.price)
+    return parsedPrice % 2 === 0
+})
+console.log(fullPricedBook)
