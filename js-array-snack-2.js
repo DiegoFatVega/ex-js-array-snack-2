@@ -74,8 +74,8 @@ const discountedBooks = availableBooks.map(b => {
 console.log(discountedBooks)
 
 const fullPricedBook = discountedBooks.find(books => {
-    const parsedPrice = parseInt(books.price)
-    return parsedPrice % 2 === 0
+    const parsedPrice = parseFloat(books.price)  //meglio usare un float
+    return parsedPrice % 1 === 0
 })
 console.log(fullPricedBook)
 
@@ -103,9 +103,9 @@ console.log(authors)
 const ages = books.map(book => book.author.age)
 console.log(ages)
 
-const agesSum = ages.reduce((acc, age) => acc + age)
+const agesSum = ages.reduce((acc, age) => acc + age, 0)
 
 console.log(agesSum)
 
-const avgAge = ages.reduce((acc, age) => (acc + age) / ages.length)
-console.log(avgAge)
+const avgAge = ages.reduce((acc, age) => acc + age)
+console.log(`l'etá media degli autori è: ${avgAge / ages.length} anni`) //l'operazione di divisione va fatto so
