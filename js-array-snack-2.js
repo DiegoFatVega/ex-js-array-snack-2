@@ -106,3 +106,6 @@ console.log(ages)
 const agesSum = ages.reduce((acc, age) => acc + age)
 
 console.log(agesSum)
+
+const avgAge = ages.reduce((acc, age) => (acc + age) / ages.length)
+console.log(avgAge)
